@@ -475,7 +475,7 @@ def parse_kickstart(options, addon_paths, pass_to_boss=False):
     :returns: kickstart parsed to a data model
     """
     ksdata = None
-    if options.ksfile and not options.liveinst:
+    if options.ksfile:
         if not os.path.exists(options.ksfile):
             stdout_log.error("Kickstart file %s is missing.", options.ksfile)
             util.ipmi_report(constants.IPMI_ABORTED)

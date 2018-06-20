@@ -132,14 +132,7 @@ for opt in `cat /proc/cmdline` $*; do
         exit 1
         ;;
     ks=*|kickstart=*|--ks=*|--kickstart=*|inst.ks=*|--inst.ks=*|inst.kickstart=*|--inst-kickstart=*)
-        title="Configuration not supported"
-        text="Kickstart is not supported on live installs.  This installation will continue interactively."
-        if which zenity &> /dev/null; then
-            zenity --warning --title="$title" --text="$text"
-         else
-            echo "$title" >&2
-            echo "$text" >&2
-         fi
+        KICKSTART="${opt#*=}"
         ;;
     rescue|--rescue)
         title="Configuration not supported"
@@ -189,6 +182,11 @@ if [ ! -z "$UPDATES" ]; then
     export PYTHONPATH=/tmp/updates:$PYTHONPATH
     export LD_LIBRARY_PATH=/tmp/updates:$LD_LIBRARY_PATH
     export PATH=/tmp/updates:$PATH
+fi
+
+if [! -z "$KICKSTART" ]; then
+    mkdir /run/install
+    curl -o /run/install/ks.cfg "$KICKSTART"
 fi
 
 if [ -z $LC_ALL ]; then
