@@ -23,10 +23,10 @@ dist_sbin_SCRIPTS  = liveinst
 desktopdir         = $(datadir)/applications
 dist_desktop_DATA  = liveinst.desktop
 
-dist_libexec_SCRIPTS = liveinst-setup.sh
+dist_libexec_SCRIPTS = liveinst-setup.sh liveinst-autostart.sh
 
 autostartdir       = $(sysconfdir)/xdg/autostart
-dist_autostart_DATA = liveinst-setup.desktop
+dist_autostart_DATA = liveinst-setup.desktop liveinst-autostart.desktop
 
 install-exec-local:
 	$(MKDIR_P) $(DESTDIR)$(bindir)

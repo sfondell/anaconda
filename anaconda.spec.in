@@ -318,6 +318,7 @@ update-desktop-database &> /dev/null || :
 %config(noreplace) %{_sysconfdir}/pam.d/*
 %config(noreplace) %{_sysconfdir}/security/console.apps/*
 %{_libexecdir}/liveinst-setup.sh
+%{_libexecdir}/liveinst-autostart.sh
 %{_datadir}/applications/*.desktop
 %{_sysconfdir}/xdg/autostart/*.desktop
 %endif

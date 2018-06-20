@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Liveinst autostart
+TryExec=/usr/sbin/liveinst
+Exec=/usr/libexec/liveinst-autostart.sh
+NoDisplay=true
+X-GNOME-AutoRestart=false
+X-GNOME-Autostart-enabled=true
