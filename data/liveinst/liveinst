@@ -184,7 +184,7 @@ if [ ! -z "$UPDATES" ]; then
     export PATH=/tmp/updates:$PATH
 fi
 
-if [! -z "$KICKSTART" ]; then
+if [ ! -z "$KICKSTART" ]; then
     mkdir /run/install
     curl -o /run/install/ks.cfg "$KICKSTART"
 fi
